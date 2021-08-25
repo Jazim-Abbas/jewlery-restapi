@@ -13,6 +13,11 @@ router
     upload.single("image"),
     validateFile,
     productController.uploadImage
+  )
+  .patch(
+    "/:id",
+    fieldsValidate(validations.updateProductSchema),
+    productController.update
   );
 
 module.exports = router;
