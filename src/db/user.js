@@ -4,12 +4,15 @@ const config = require("config");
 const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema({
-  name: String,
+  firstName: String,
+  lastName: String,
   email: {
     type: String,
     unique: true,
   },
   password: String,
+  mobileNo: String,
+  address: String,
   isAdmin: {
     type: Boolean,
     default: false,
