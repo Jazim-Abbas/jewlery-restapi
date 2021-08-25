@@ -1,5 +1,8 @@
+// const schemaValidate = require("../utils/validations/validate");
+// const validations = require("../utils/validations/product");
+
 async function store(req, res) {
-  res.send("create product");
+  res.send(req.cleanFields);
 }
 
 module.exports = { store };

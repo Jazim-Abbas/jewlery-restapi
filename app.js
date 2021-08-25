@@ -6,8 +6,8 @@ const allRoutes = require("./src/routes");
 const catchUnhandleExceptions = require("./src/middlewares/exception-handling");
 
 const app = express();
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use("/", allRoutes);
 
 // this should be always the last middleware. otherwise it will not work properly
