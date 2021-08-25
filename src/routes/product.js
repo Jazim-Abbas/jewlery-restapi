@@ -18,6 +18,7 @@ router
     "/:id",
     fieldsValidate(validations.updateProductSchema),
     productController.update
-  );
+  )
+  .delete("/:id", productController.destory);
 
 module.exports = router;

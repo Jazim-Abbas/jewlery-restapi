@@ -17,4 +17,9 @@ async function uploadImage(req, res) {
   res.send({ message: "Image is uploaded successfully" });
 }
 
-module.exports = { store, uploadImage, update };
+async function destory(req, res) {
+  await productService.destory(req.params.id);
+  res.send({ message: "Product is deleted" });
+}
+
+module.exports = { store, uploadImage, update, destory };

@@ -26,4 +26,13 @@ async function addImagePath(id, imagePath) {
   }
 }
 
-module.exports = { save, addImagePath, update };
+async function destory(id) {
+  try {
+    const product = await Product.findByIdAndDelete(id);
+    if (!product.$isDeleted) throw new Error("");
+  } catch (err) {
+    throw new Exceptions.BadRequestException("Product not found");
+  }
+}
+
+module.exports = { save, addImagePath, update, destory };
