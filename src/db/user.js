@@ -40,7 +40,7 @@ userSchema.method("comparePassword", async function (password) {
 });
 
 userSchema.method("generateToken", function (fields = {}) {
-  const userWithoutPassword = excludePasswordField(this);
+  const userWithoutPassword = excludePasswordField.bind(this)();
   const token = jwt.sign(
     { ...userWithoutPassword, ...fields },
     config.get("jwt.secret")
@@ -48,12 +48,17 @@ userSchema.method("generateToken", function (fields = {}) {
   return token;
 });
 
+userSchema.method("excludePasswordField", function () {
+  const fields = excludePasswordField.bind(this)();
+  return fields;
+});
+
 const User = mongoose.model("User", userSchema);
 module.exports = User;
 
-function excludePasswordField(userModel) {
-  const userFields = userModel._doc;
-  const { password, _userFields } = userFields;
+function excludePasswordField() {
+  const userFields = this._doc;
+  const { password, ..._userFields } = userFields;
 
   return _userFields;
 }

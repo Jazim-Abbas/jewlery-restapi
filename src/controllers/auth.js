@@ -8,7 +8,7 @@ async function register(req, res) {
 async function login(req, res) {
   let user = await userService.login(req.body);
   const token = user.generateToken();
-  user = { ...user._doc, token };
+  user = { ...user.excludePasswordField(), token };
 
   res.send({ user });
 }
