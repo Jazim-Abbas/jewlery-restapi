@@ -20,7 +20,11 @@ async function login(credentials) {
   return userInDb;
 }
 
-module.exports = { register, login };
+async function singleUser(userId) {
+  return await User.findById(userId).select("-password");
+}
+
+module.exports = { register, login, singleUser };
 
 function findByEmail(email) {
   return User.findOne({ email });
