@@ -5,4 +5,9 @@ async function myProfile(req, res) {
   res.send({ user });
 }
 
-module.exports = { myProfile };
+async function singleUserProfile(req, res) {
+  const user = await userService.singleUser(req.params.id);
+  res.send({ user });
+}
+
+module.exports = { myProfile, singleUserProfile };
