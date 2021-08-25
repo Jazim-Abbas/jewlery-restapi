@@ -3,6 +3,7 @@ const dbConnect = require("./src/db/connect");
 
 async function main() {
   console.log("Please wait db is connecting ...");
+  const PORT = process.env.PORT || 8000;
 
   try {
     await dbConnect();
