@@ -7,4 +7,9 @@ async function store(req, res) {
   res.send({ product });
 }
 
-module.exports = { store };
+async function uploadImage(req, res) {
+  await productService.addImagePath(req.params.id, req.file.path);
+  res.send({ message: "Image is uploaded successfully" });
+}
+
+module.exports = { store, uploadImage };

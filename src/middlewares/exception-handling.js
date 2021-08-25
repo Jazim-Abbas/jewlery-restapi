@@ -1,3 +1,4 @@
+const fs = require("fs/promises");
 const Exceptions = require("../utils/custom-exceptions");
 
 module.exports = async function (err, req, res, next) {
@@ -7,6 +8,7 @@ module.exports = async function (err, req, res, next) {
   let errors = [];
 
   console.log(err);
+  await removeFileIfExists(req.file);
 
   if (err instanceof Exceptions.HttpException) {
     if (err instanceof Exceptions.ValidationException) {
@@ -19,3 +21,11 @@ module.exports = async function (err, req, res, next) {
 
   res.status(statusCode).send({ message, name, errors });
 };
+
+async function removeFileIfExists(file) {
+  if (!file) return;
+
+  try {
+    await fs.unlink(file.path);
+  } catch (_) {}
+}
