@@ -85,3 +85,44 @@
   product: string(db_id);
 }
 ```
+
+---
+
+## Product Module
+
+### Routes Info
+
+- /product: post
+- /product/upload/:id: patch
+- /product/:id: patch
+- /product/:id: delete
+
+### Req Body Info
+
+- /product:
+
+```js
+{
+    name: string,
+    description: string,
+    size: string,
+    color: string,
+    category: string,
+    price: number,
+    isFeatured: bool
+}
+```
+
+- /product/:id
+
+```js
+{
+    name: string (optional),
+    description: string (optional),
+    size: string (optional),
+    color: string (optional),
+    category: string (optional),
+    price: number (optional),
+    isFeatured: bool (optional)
+}
+```
