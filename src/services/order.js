@@ -1,7 +1,11 @@
 const Order = require("../db/order");
 
 async function getAll() {
-  return await Order.find().populate("user", "-password").populate("product");
+  return Order.find().populate("user", "-password").populate("product");
+}
+
+async function getUserAllOrders(userId) {
+  return Order.find({ user: userId }).populate("product");
 }
 
 async function save(orders) {
@@ -9,4 +13,4 @@ async function save(orders) {
   return _orders;
 }
 
-module.exports = { save, getAll };
+module.exports = { save, getAll, getUserAllOrders };

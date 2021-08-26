@@ -5,6 +5,11 @@ async function findAll(req, res) {
   res.send({ orders });
 }
 
+async function findUserOrders(req, res) {
+  const orders = await orderService.getUserAllOrders(req.user._id);
+  res.send({ orders });
+}
+
 async function store(req, res) {
   const _orders = req.cleanFields.orders.map((order) => ({
     ...order,
@@ -15,4 +20,4 @@ async function store(req, res) {
   res.send({ orders });
 }
 
-module.exports = { store, findAll };
+module.exports = { store, findAll, findUserOrders };

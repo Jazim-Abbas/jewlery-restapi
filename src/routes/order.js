@@ -12,6 +12,7 @@ router
     fieldsValidate(validations.orderSchema),
     orderController.store
   )
-  .get("/", orderController.findAll);
+  .get("/", orderController.findAll)
+  .get("/user", isAuthMiddleware, orderController.findUserOrders);
 
 module.exports = router;
