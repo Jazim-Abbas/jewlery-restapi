@@ -5,6 +5,10 @@ async function getAll() {
   return await Product.find();
 }
 
+async function getSingle(id) {
+  return await Product.findById(id);
+}
+
 async function save(product) {
   const _product = new Product({ ...product });
   return await _product.save();
@@ -39,4 +43,4 @@ async function destory(id) {
   }
 }
 
-module.exports = { save, addImagePath, update, destory, getAll };
+module.exports = { save, addImagePath, update, destory, getAll, getSingle };

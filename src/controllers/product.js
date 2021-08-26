@@ -7,6 +7,11 @@ async function findAll(req, res) {
   res.send({ products });
 }
 
+async function findOne(req, res) {
+  const product = await productService.getSingle(req.params.id);
+  res.send({ product });
+}
+
 async function store(req, res) {
   const product = await productService.save(req.cleanFields);
   res.send({ product });
@@ -27,4 +32,4 @@ async function destory(req, res) {
   res.send({ message: "Product is deleted" });
 }
 
-module.exports = { store, uploadImage, update, destory, findAll };
+module.exports = { store, uploadImage, update, destory, findAll, findOne };
