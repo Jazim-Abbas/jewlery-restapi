@@ -1,6 +1,10 @@
 const Wishlist = require("../db/wishlist");
 const Exceptions = require("../utils/custom-exceptions");
 
+async function getUserAllWishlist(userId) {
+  return await Wishlist.find({ user: userId }).populate("product");
+}
+
 async function save(wishlist) {
   const wishlistInDB = await Wishlist.findOne({ ...wishlist });
   if (wishlistInDB) return null;
@@ -17,4 +21,4 @@ async function deleteSingle(id) {
   }
 }
 
-module.exports = { save, deleteSingle };
+module.exports = { save, deleteSingle, getUserAllWishlist };

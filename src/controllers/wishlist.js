@@ -1,5 +1,10 @@
 const wishlistService = require("../services/wishlist");
 
+async function findUserWishlists(req, res) {
+  const wishlists = await wishlistService.getUserAllWishlist(req.user._id);
+  res.send({ wishlists });
+}
+
 async function store(req, res) {
   const wishlist = await wishlistService.save({
     ...req.cleanFields,
@@ -15,4 +20,4 @@ async function deleteSingle(req, res) {
   res.send({ message: "Successfully remove wishlist .." });
 }
 
-module.exports = { store, deleteSingle };
+module.exports = { store, deleteSingle, findUserWishlists };

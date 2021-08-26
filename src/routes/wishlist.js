@@ -12,6 +12,7 @@ router
     fieldsValidate(validations.wishlistSchema),
     wishlistController.store
   )
+  .get("/", isAuthMiddleware, wishlistController.findUserWishlists)
   .delete("/:id", isAuthMiddleware, wishlistController.deleteSingle);
 
 module.exports = router;
