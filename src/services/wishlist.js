@@ -1,4 +1,5 @@
 const Wishlist = require("../db/wishlist");
+const Exceptions = require("../utils/custom-exceptions");
 
 async function save(wishlist) {
   const wishlistInDB = await Wishlist.findOne({ ...wishlist });
@@ -8,4 +9,12 @@ async function save(wishlist) {
   return await _wishlist.save();
 }
 
-module.exports = { save };
+async function deleteSingle(id) {
+  const wishlist = await Wishlist.findByIdAndDelete(id);
+
+  if (!wishlist || !wishlist.$isDeleted) {
+    throw new Exceptions.BadRequestException("Not found Wishlist ...");
+  }
+}
+
+module.exports = { save, deleteSingle };

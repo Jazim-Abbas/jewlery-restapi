@@ -10,4 +10,9 @@ async function store(req, res) {
   res.send({ message });
 }
 
-module.exports = { store };
+async function deleteSingle(req, res) {
+  await wishlistService.deleteSingle(req.params.id);
+  res.send({ message: "Successfully remove wishlist .." });
+}
+
+module.exports = { store, deleteSingle };

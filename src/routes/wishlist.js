@@ -5,11 +5,13 @@ const fieldsValidate = require("../middlewares/validation");
 const validations = require("../utils/validations/wishlist");
 
 const router = express.Router();
-router.post(
-  "/",
-  isAuthMiddleware,
-  fieldsValidate(validations.wishlistSchema),
-  wishlistController.store
-);
+router
+  .post(
+    "/",
+    isAuthMiddleware,
+    fieldsValidate(validations.wishlistSchema),
+    wishlistController.store
+  )
+  .delete("/:id", isAuthMiddleware, wishlistController.deleteSingle);
 
 module.exports = router;
