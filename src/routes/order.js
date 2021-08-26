@@ -5,11 +5,13 @@ const validations = require("../utils/validations/order");
 const isAuthMiddleware = require("../middlewares/is-auth");
 
 const router = express.Router();
-router.post(
-  "/",
-  isAuthMiddleware,
-  fieldsValidate(validations.orderSchema),
-  orderController.store
-);
+router
+  .post(
+    "/",
+    isAuthMiddleware,
+    fieldsValidate(validations.orderSchema),
+    orderController.store
+  )
+  .get("/", orderController.findAll);
 
 module.exports = router;

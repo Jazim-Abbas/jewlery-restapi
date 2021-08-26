@@ -1,5 +1,10 @@
 const orderService = require("../services/order");
 
+async function findAll(req, res) {
+  const orders = await orderService.getAll();
+  res.send({ orders });
+}
+
 async function store(req, res) {
   const _orders = req.cleanFields.orders.map((order) => ({
     ...order,
@@ -10,4 +15,4 @@ async function store(req, res) {
   res.send({ orders });
 }
 
-module.exports = { store };
+module.exports = { store, findAll };
