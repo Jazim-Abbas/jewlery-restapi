@@ -138,6 +138,8 @@
 
 ### Route Info
 
+- /order: get
+- /order/user: get (authenicated)
 - /order: post
 
 ### Req Body Info
