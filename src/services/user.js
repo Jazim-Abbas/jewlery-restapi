@@ -1,6 +1,10 @@
 const { User } = require("../db");
 const Exceptions = require("../utils/custom-exceptions");
 
+async function getAll() {
+  return await User.find().select("-password");
+}
+
 async function register(userFields) {
   try {
     const user = new User({ ...userFields });
@@ -24,7 +28,7 @@ async function singleUser(userId) {
   return await User.findById(userId).select("-password");
 }
 
-module.exports = { register, login, singleUser };
+module.exports = { register, login, singleUser, getAll };
 
 function findByEmail(email) {
   return User.findOne({ email });

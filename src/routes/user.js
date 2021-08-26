@@ -4,6 +4,7 @@ const isAuthMiddleware = require("../middlewares/is-auth");
 
 const router = express.Router();
 router
+  .get("/", userController.findAll)
   .get("/my-profile", isAuthMiddleware, userController.myProfile)
   .get("/profile/:id", userController.singleUserProfile);
 

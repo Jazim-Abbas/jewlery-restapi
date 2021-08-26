@@ -37,6 +37,7 @@
 
 ### Routes Info
 
+- /user: get
 - /user/my-profile: get (authenticated)
 - /user/profile/:id: get
 
