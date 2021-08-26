@@ -8,6 +8,7 @@ const validateFile = require("../middlewares/validate-file");
 const router = express.Router();
 router
   .get("/", productController.findAll)
+  .get("/featured", productController.findAllFeatureProduct)
   .get("/:id", productController.findOne)
   .post("/", fieldsValidate(validations.productSchema), productController.store)
   .patch(
