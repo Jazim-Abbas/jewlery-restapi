@@ -126,3 +126,25 @@
     isFeatured: bool (optional)
 }
 ```
+
+---
+
+## Order Module
+
+### Route Info
+
+- /order: post
+
+### Req Body Info
+
+- /order
+
+```js
+{
+    [
+        quantity: number,
+        price: number,
+        product: string(db_id)
+    ]
+}
+```
