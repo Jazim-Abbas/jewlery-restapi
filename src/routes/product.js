@@ -7,6 +7,7 @@ const validateFile = require("../middlewares/validate-file");
 
 const router = express.Router();
 router
+  .get("/", productController.findAll)
   .post("/", fieldsValidate(validations.productSchema), productController.store)
   .patch(
     "/upload/:id",

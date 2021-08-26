@@ -2,6 +2,11 @@
 // const validations = require("../utils/validations/product");
 const productService = require("../services/product");
 
+async function findAll(req, res) {
+  const products = await productService.getAll();
+  res.send({ products });
+}
+
 async function store(req, res) {
   const product = await productService.save(req.cleanFields);
   res.send({ product });
@@ -22,4 +27,4 @@ async function destory(req, res) {
   res.send({ message: "Product is deleted" });
 }
 
-module.exports = { store, uploadImage, update, destory };
+module.exports = { store, uploadImage, update, destory, findAll };

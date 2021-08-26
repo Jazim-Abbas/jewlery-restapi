@@ -1,6 +1,10 @@
 const Product = require("../db/product");
 const Exceptions = require("../utils/custom-exceptions");
 
+async function getAll() {
+  return await Product.find();
+}
+
 async function save(product) {
   const _product = new Product({ ...product });
   return await _product.save();
@@ -35,4 +39,4 @@ async function destory(id) {
   }
 }
 
-module.exports = { save, addImagePath, update, destory };
+module.exports = { save, addImagePath, update, destory, getAll };
