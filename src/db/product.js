@@ -11,6 +11,10 @@ const schema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  isAvailable: {
+    type: Boolean,
+    default: true,
+  },
   image: String,
   createdAt: Date,
 });

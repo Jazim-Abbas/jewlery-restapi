@@ -8,6 +8,7 @@ const productSchema = yup.object().shape({
   category: yup.string().required(),
   price: yup.number().required(),
   isFeatured: yup.boolean().required(),
+  isAvailable: yup.boolean().required(),
 });
 
 const updateProductSchema = yup.object().shape({
@@ -18,6 +19,7 @@ const updateProductSchema = yup.object().shape({
   category: yup.string().notRequired(),
   price: yup.number().notRequired(),
   isFeatured: yup.boolean().notRequired(),
+  isAvailable: yup.boolean().notRequired(),
 });
 
 module.exports = { productSchema, updateProductSchema };

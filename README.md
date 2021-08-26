@@ -114,7 +114,8 @@
     color: string,
     category: string,
     price: number,
-    isFeatured: bool
+    isFeatured: bool,
+    isAvailable: bool
 }
 ```
 
@@ -128,7 +129,8 @@
     color: string (optional),
     category: string (optional),
     price: number (optional),
-    isFeatured: bool (optional)
+    isFeatured: bool (optional),
+    isAvailable: bool (optional)
 }
 ```
 
