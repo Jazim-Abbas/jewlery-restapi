@@ -66,3 +66,22 @@
     email: string
 }
 ```
+
+---
+
+## Wishlist Module
+
+### Routes Info
+
+- /wishlist: post (authenicated)
+- /wishlist/:id: delete (authenicated)
+
+### Req Body Info
+
+- /wishlist:
+
+```js
+{
+  product: string(db_id);
+}
+```
