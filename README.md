@@ -1,5 +1,27 @@
 # Jewlery App
 
+## Application
+
+### Production Server Link
+
+- baseURL: https://jewlery-restapi.herokuapp.com
+
+---
+
+## User Credentials
+
+### Admin User Credentials
+
+- email: admin@gmail.com
+- password: password
+
+### Simple User Credentials
+
+- email: jazim@gmail.com
+- password: password
+
+---
+
 ## Auth Module
 
 ### Routes Info
