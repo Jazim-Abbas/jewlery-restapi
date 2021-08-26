@@ -92,6 +92,10 @@
 
 ### Routes Info
 
+- /product: get
+- /product/featured: get
+- /product/featured/last: get
+- /product/:id: get
 - /product: post
 - /product/upload/:id: patch
 - /product/:id: patch
