@@ -45,3 +45,24 @@
 - /user/my-profile: for getting the profile for authenticated user. So you must have to pass token in order to access this route ...
 
 - /user/profile/:id: for fetching the profile for single user by passing that user id from client ...
+
+---
+
+## Contact Module
+
+### Routes Info
+
+- /contact: post
+
+### Req Body Info
+
+- /contact:
+
+```js
+{
+    firstName: string,
+    lastName: string,
+    message: string,
+    email: string
+}
+```
