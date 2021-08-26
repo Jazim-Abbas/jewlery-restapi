@@ -2,7 +2,7 @@
 
 ## Auth Module
 
-### Routes
+### Routes Info
 
 - /auth/register: post
 - /auth/login: post
@@ -11,7 +11,7 @@
 
 - /auth/register:
 
-```json
+```js
 {
     firstName: string,
     lastName: string,
@@ -24,7 +24,7 @@
 
 - /auth/login:
 
-```json
+```js
 {
     email: string,
     password: string
@@ -32,3 +32,16 @@
 ```
 
 ---
+
+## User Module
+
+### Routes Info
+
+- /user/my-profile: get (authenticated)
+- /user/profile/:id: get
+
+### Req Info
+
+- /user/my-profile: for getting the profile for authenticated user. So you must have to pass token in order to access this route ...
+
+- /user/profile/:id: for fetching the profile for single user by passing that user id from client ...
