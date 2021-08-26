@@ -13,6 +13,10 @@ async function getAllFeaturedProduct() {
   return await Product.find({ isFeatured: true });
 }
 
+async function getLastFeatured() {
+  return await Product.findOne({}, {}, { sort: { createdAt: -1 } });
+}
+
 async function save(product) {
   const _product = new Product({ ...product });
   return await _product.save();
@@ -55,4 +59,5 @@ module.exports = {
   getAll,
   getSingle,
   getAllFeaturedProduct,
+  getLastFeatured,
 };

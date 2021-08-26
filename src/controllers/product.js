@@ -17,6 +17,11 @@ async function findAllFeatureProduct(req, res) {
   res.send({ products });
 }
 
+async function findLastFeaturedProduct(req, res) {
+  const product = await productService.getLastFeatured();
+  res.send({ product });
+}
+
 async function store(req, res) {
   const product = await productService.save(req.cleanFields);
   res.send({ product });
@@ -45,4 +50,5 @@ module.exports = {
   findAll,
   findOne,
   findAllFeatureProduct,
+  findLastFeaturedProduct,
 };

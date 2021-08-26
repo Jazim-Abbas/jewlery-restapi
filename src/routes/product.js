@@ -9,6 +9,7 @@ const router = express.Router();
 router
   .get("/", productController.findAll)
   .get("/featured", productController.findAllFeatureProduct)
+  .get("/featured/last", productController.findLastFeaturedProduct)
   .get("/:id", productController.findOne)
   .post("/", fieldsValidate(validations.productSchema), productController.store)
   .patch(

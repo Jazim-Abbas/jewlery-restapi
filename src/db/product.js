@@ -12,12 +12,12 @@ const schema = new mongoose.Schema({
     default: false,
   },
   image: String,
-  updatedAt: Date,
+  createdAt: Date,
 });
 
 schema.pre("save", function (next) {
   const product = this;
-  product.updatedAt = new Date();
+  product.createdAt = new Date();
   next();
 });
 
