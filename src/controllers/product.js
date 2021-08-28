@@ -33,7 +33,7 @@ async function update(req, res) {
 }
 
 async function uploadImage(req, res) {
-  await productService.addImagePath(req.params.id, req.file.path);
+  await productService.addImagePath(req.params.id, req.file.filename);
   res.send({ message: "Image is uploaded successfully" });
 }
 

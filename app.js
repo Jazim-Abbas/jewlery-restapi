@@ -7,6 +7,7 @@ const allRoutes = require("./src/routes");
 const catchUnhandleExceptions = require("./src/middlewares/exception-handling");
 
 const app = express();
+app.use(express.static(__dirname + "/uploads"));
 app.use(cors({ origin: "*" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
